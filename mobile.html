@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="css/mobile.css"/>
+  </head>
+  <body>
+    <!--reference: http://upload.wikimedia.org/wikipedia/commons/9/93/Game_boy_pocket.png-->
+    <div id="gameboy_shell">
+      <span id="on_off">OFF ! ! ON</span>
+      <div id="screen_cover">
+        <div id="power">
+          <div class="two_column">
+            <div id="power_light"></div>
+            <div>)))</div>
+          </div>
+          POWER
+        </div>
+        <div id="canvas_container">
+          <canvas id="mainCanvas">No Canvas Support</canvas>
+        </div>
+        <div>
+          GameBoy <span id="pocket">Pocket</span>
+        </div>
+      </div>
+      <div id="nintendo">Nintendo</div>
+      <div id="d_pad">
+        <div id="d_pad_up">
+          <div id="arrow_up" data-key-zone="up"></div>
+        </div>
+        <div id="d_pad_left_right">
+          <div id="d_pad_left">
+            <div id="arrow_left" data-key-zone="left"></div>
+          </div>
+          <div id="d_pad_right">
+            <div id="arrow_right" data-key-zone="right"></div>
+          </div>
+          <div id="d_pad_center"></div>
+        </div>
+        <div id="d_pad_down">
+          <div id="arrow_down" data-key-zone="down"></div>
+        </div>
+      </div>
+      <div id="a_button_group" class="button_group" data-key-zone="a">
+        <div class="round_button"></div>
+        A
+      </div>
+      <div id="b_button_group" class="button_group" data-key-zone="b">
+        <div class="round_button"></div>
+        B
+      </div>
+      <div id="select_button_group" class="button_group" data-key-zone="select">
+        <div class="flat_button"></div>
+        SELECT
+      </div>
+      <div id="start_button_group" class="button_group" data-key-zone="start">
+        <div class="flat_button"></div>
+        START
+      </div>
+      <img id="speaker" src="images/speaker.png"/>
+    </div>
+    <!--<script src="js/other/windowStack.js"></script>-->
+    <!--<script src="js/other/terminal.js"></script>-->
+    <script src="js/other/mobile.js"></script>
+    <script src="js/other/base64.js"></script>
+    <script src="js/other/json2.js"></script>
+    <script src="js/other/swfobject.js"></script>
+    <script src="js/other/resampler.js"></script>
+    <script src="js/other/XAudioServer.js"></script>
+    <script src="js/other/resize.js"></script>
+    <script src="js/GameBoyCore.js"></script>
+    <script src="js/GameBoyIO.js"></script>
+  </body>
+</html>

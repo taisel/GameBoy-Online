@@ -1,0 +1,450 @@
+@charset "utf-8";
+html {
+	background-color: rgb(200, 225, 225);
+	background-attachment: fixed;
+	background-repeat: none;
+	background-image: url("../images/gradient_01.svg");
+	background-image: -webkit-linear-gradient(315deg, rgb(200, 200, 255), rgb(200, 255, 200));
+	background-image: -moz-linear-gradient(315deg, rgb(200, 200, 255), rgb(200, 255, 200));
+	background-image: -o-linear-gradient(315deg, rgb(200, 200, 255), rgb(200, 255, 200));
+	background-image: linear-gradient(135deg, rgb(200, 200, 255), rgb(200, 255, 200));
+	margin: 0;
+	padding: 0;
+	font-family: arial;
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+	text-align: left;
+	direction: ltr;
+	width: 100%;
+	height: 100%;
+	text-rendering: optimizeSpeed;
+}
+body {
+	width: auto;
+	height: auto;
+	min-width: 100%;
+	min-height: 100%;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+div.menubar, div#GameBoy > div#gfx, div.window > div.button_rack, ul.menu {
+	-webkit-text-size-adjust: none;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+div.window {
+	visibility: visible;
+	display: none;
+	position: absolute;
+	overflow: hidden;
+	margin: 0;
+	padding: 10px 0px 0px 0px;
+	top: 0;
+	left: 0;
+	color: rgb(0, 0, 0);
+	font-size: 16px;
+	-webkit-border-radius: 10px 10px 3px 3px;
+	border-radius: 10px 10px 3px 3px;
+	-webkit-box-shadow: 5px 5px 10px rgb(30, 30, 30);
+	box-shadow: 5px 5px 10px rgb(30, 30, 30);
+	background-color: rgb(200, 200, 200);
+	z-index: 2;
+	opacity: 1;
+}
+div#GameBoy {
+	min-height: 340px;
+	min-width: 400px;
+}
+div#input_select, div#save_importer {
+	min-height: 100px;
+	min-width: 200px;
+}
+div#instructions {
+	min-height: 300px;
+	min-width: 400px;
+}
+div.menubar {
+	max-height: 28px;
+	min-width: 250px;	/*Fail safe for poopy browsers.*/
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	left: 0;
+	right: 0;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-top-color: rgb(150, 150, 150);
+	border-left-style: none;
+	border-right-style: none;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: rgb(50, 50, 50);
+	text-overflow: ellipsis;
+	margin: 0;
+	padding: 0 0 0 3px;
+	text-align: left;
+	background-color: rgb(210, 210, 210);
+	background-repeat: repeat-x;
+	background-attachment: scroll;
+	background-image: url("../images/gradient_02.svg");
+	background-image: -webkit-linear-gradient(top, rgb(150, 150, 150), rgb(220, 220, 220), rgb(180, 180, 180));
+	background-image: -moz-linear-gradient(top, rgb(150, 150, 150), rgb(220, 220, 220), rgb(180, 180, 180));
+	background-image: -o-linear-gradient(top, rgb(150, 150, 150), rgb(220, 220, 220), rgb(180, 180, 180));
+	background-image: linear-gradient(top, rgb(150, 150, 150), rgb(220, 220, 220), rgb(180, 180, 180));
+}
+div.menubar > span {
+	cursor: pointer;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	background-color: transparent;
+	padding: 2px 5px;
+	margin: 3px 3px 3px 0;
+	display: inline;
+	display: inline-block;
+}
+div.menubar > span:hover {
+	-webkit-box-shadow: 2px 2px 1px rgb(30, 30, 30);
+	box-shadow: 2px 2px 1px rgb(30, 30, 30);
+	background-color: rgb(160, 160, 160);
+	background-repeat: repeat-x;
+	background-attachment: scroll;
+	background-image: url("../images/gradient_03.svg");
+	background-image: -webkit-linear-gradient(top, rgb(160, 160, 160), rgb(190, 190, 190), rgb(160, 160, 160));
+	background-image: -moz-linear-gradient(top, rgb(160, 160, 160), rgb(190, 190, 190), rgb(160, 160, 160));
+	background-image: -o-linear-gradient(top, rgb(160, 160, 160), rgb(190, 190, 190), rgb(160, 160, 160));
+	background-image: linear-gradient(top, rgb(160, 160, 160), rgb(190, 190, 190), rgb(160, 160, 160));
+}
+div.menubar > span:active {
+	-webkit-box-shadow: inset 2px 2px 1px rgb(30, 30, 30);
+	box-shadow: inset 2px 2px 1px rgb(30, 30, 30);
+	background-color: rgb(220, 220, 220);
+	background-repeat: repeat-x;
+	background-attachment: scroll;
+	background-image: url("../images/gradient_04.svg");
+	background-image: -webkit-linear-gradient(top, rgb(190, 190, 190), rgb(160, 160, 160), rgb(190, 190, 190));
+	background-image: -moz-linear-gradient(top, rgb(190, 190, 190), rgb(160, 160, 160), rgb(190, 190, 190));
+	background-image: -o-linear-gradient(top, rgb(190, 190, 190), rgb(160, 160, 160), rgb(190, 190, 190));
+	background-image: linear-gradient(top, rgb(190, 190, 190), rgb(160, 160, 160), rgb(190, 190, 190));
+}
+div#gfx {
+	height: auto;
+	width: auto;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	bottom: 3px;
+	left: 3px;
+	right: 3px;
+	top: 43px;
+	background-color: rgb(200, 50, 50);
+	background-repeat: repeat-x;
+	background-attachment: scroll;
+	background-image: url("../images/gradient_05.svg");
+	background-image: -webkit-linear-gradient(top, rgb(200, 50, 50), rgb(200, 75, 150));
+	background-image: -moz-linear-gradient(top, rgb(200, 50, 50), rgb(200, 75, 150));
+	background-image: -o-linear-gradient(top, rgb(200, 50, 50), rgb(200, 75, 150));
+	background-image: linear-gradient(top, rgb(200, 50, 50), rgb(200, 75, 150));
+}
+body > div#fullscreenContainer {
+	position: absolute;	/*Fallback here if fixed isn't supported*/
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0px;
+	background-color: rgb(0, 0, 0);
+	display: none;
+	z-index: 100;
+}
+body > div#fullscreenContainer > canvas#fullscreen.maximum {
+	position: static;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+body > div#fullscreenContainer > canvas#fullscreen.minimum {
+	position: absolute;
+	height: 144px;
+	width: 160px;
+	top: 50%;
+	left: 50%;
+	margin: -72px 0 0 -80px;
+	padding: 0;
+}
+div#GameBoy > div#gfx > canvas {
+	position: absolute;
+	z-index: 5;
+	visibility: hidden;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(255, 255, 255);
+}
+div#GameBoy > div#gfx > span#title {
+	position: absolute;
+	top: 30%;
+	left: 15%;
+	font-size: 64px;
+	color: rgb(220, 220, 150);
+	text-shadow: 3px 3px 5px rgb(50, 50, 50);
+	font-style: italic;
+	z-index: 1;
+	padding: 0 5px 0 0;
+}
+div#GameBoy > div#gfx > span#port_title {
+	position: absolute;
+	top: 45%;
+	left: 55%;
+	font-size: 32px;
+	color: rgb(180, 70, 70);
+	text-shadow: 2px 2px 4px rgb(80, 80, 80);
+	font-style: italic;
+	font-weight: bold;
+	z-index: 2;
+	padding: 0 5px 0 0;
+}
+div#about {
+	max-width: 400px;
+	max-height: 350px;
+	min-width: 400px;
+	min-height: 350px;
+}
+div#terminal {
+	min-height: 100px;
+	min-width: 310px;
+}
+div#terminal, div#about, div#settings, div#local_storage_listing, div#freeze_listing {
+	height: 350px;
+	width: 400px;
+}
+div#settings {
+	height: 410px;
+}
+div#local_storage_popup {
+	height: 250px;
+	width: 300px;
+}
+div#local_storage_listing, div#freeze_listing {
+	min-width: 400px;
+	min-height: 350px;
+}
+div.storageList {
+	position: absolute;
+	top: 10px;
+	left: 3px;
+	right: 4px;
+	overflow: auto;
+	text-align: left;
+	bottom: 50px;
+	background-color: rgb(140, 140, 140);
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: inset 3px 3px 2px 1px rgb(110, 110, 110);
+	box-shadow: inset 3px 3px 2px 1px rgb(110, 110, 110);
+	padding: 3px;
+}
+div#storageListingMasterContainer {
+	top: 40px !important;
+}
+div#download_all_storage {
+	position: absolute;
+	height: 20px;
+	left: 3px;
+	top: 10px;
+	right: 4px;
+	text-align: center;
+	font-style: bold;
+	background-color: rgb(140, 140, 140);
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: inset 3px 3px 2px 1px rgb(110, 110, 110);
+	box-shadow: inset 3px 3px 2px 1px rgb(110, 110, 110);
+	padding: 3px;
+}
+div.storageList a, div#download_all_storage a {
+	color: rgb(210, 210, 210);
+}
+div#terminal > div#terminal_output {
+	background-color: rgb(0, 0, 0);
+	margin: 0;
+	padding: 0;
+	font-family: monotype;
+	font-size: 12px;
+	bottom: 50px;
+	padding: 10px;
+	top: 10px;
+	right: 3px;
+	left: 3px;
+	position: absolute;
+	cursor: crosshair;
+	overflow: auto;
+	text-align: left;
+}
+div#terminal > div#terminal_output > span.white {
+	color: rgb(255, 255, 255);
+}
+div#terminal > div#terminal_output > span.white:before {
+	content: "<DEBUG> ";
+	font-weight: bold;
+}
+div#terminal > div#terminal_output > span.yellow {
+	color: rgb(255, 255, 0);
+}
+div#terminal > div#terminal_output > span.yellow:before {
+	content: "<WARNING> ";
+	font-weight: bold;
+}
+div#terminal > div#terminal_output > span.red {
+	color: rgb(0, 0, 255);
+}
+div#terminal > div#terminal_output > span.red:before {
+	content: "<ERROR> ";
+	font-weight: bold;
+}
+div#about > div#about_message, div#instructions > div#keycodes {
+	position: absolute;
+	top: 10px;
+	left: 3px;
+	bottom: 50px;
+	right: 3px;
+	background-color: rgb(230, 230, 230);
+	border-width: 5px;
+	border-style: groove;
+	border-color: rgb(50, 50, 50);
+	padding: 5px;
+	overflow: auto;
+}
+div#about > div#about_message > h1 {
+	font-size: 20px;
+	color: rgb(80, 60, 20);
+}
+div#settings > div#toggle_settings {
+	position: absolute;
+	top: 10px;
+	left: 3px;
+	right: 3px;
+	bottom: 50px;
+}
+div#settings > div#toggle_settings > div.setting {
+	text-align: left;
+	width: 100%;
+	position: relative;
+	margin: 0;
+	padding: 0 0 3px 0;
+	border: none;
+}
+div#settings > div#toggle_settings > div.setting:hover {
+	border-bottom-style: dashed;
+	border-bottom-color: rgb(70, 70, 70);
+	border-bottom-width: 1px;
+}
+div#settings > div#toggle_settings > div.setting input {
+	float: right;
+}
+div.window > div.button_rack {
+	background-color: transparent;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	height: 44px;
+	bottom: 3px;
+	right: 3px;
+	left: 3px;
+	text-align: center;
+}
+div.window > div.button_rack > button {
+	cursor: pointer;
+	padding: 0;
+	margin: 0;
+	height: 44px;
+	width: 150px;
+	text-align: center;
+	font-size: 14px;
+	position: relative;
+}
+div.window > div.button_rack > button.left {
+	float: left;
+}
+div.window > div.button_rack > button.right {
+	float: right;
+}
+div.window > div.button_rack > button.center {
+	width: 100%;
+}
+ul.menu {
+	list-style-position: inside;
+	position: absolute;
+	display: none;
+	list-style-type: none;
+	width: auto;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	left: 0;
+	z-index: 3;
+	background-color: rgb(200, 200, 200);
+	background-repeat: repeat-x;
+	background-attachment: scroll;
+	background-image: url("../images/gradient_06.svg");
+	background-image: -webkit-linear-gradient(left, rgb(200, 200, 200), rgb(240, 240, 240));
+	background-image: -moz-linear-gradient(left, rgb(200, 200, 200), rgb(240, 240, 240));
+	background-image: -o-linear-gradient(left, rgb(200, 200, 200), rgb(240, 240, 240));
+	background-image: linear-gradient(left, rgb(200, 200, 200), rgb(240, 240, 240));
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 5px 5px 10px rgb(30, 30, 30);
+	box-shadow: 5px 5px 10px rgb(30, 30, 30);
+	border-style: solid;
+	border-top-width: 1px;
+	border-left-width: 1px;
+	border-right-width: 2px;
+	border-bottom-width: 2px;
+	border-top-color: rgb(100, 100, 100);
+	border-left-color: rgb(100, 100, 100);
+	border-bottom-color: rgb(50, 50, 50);
+	border-right-color: rgb(50, 50, 50);
+	overflow: visible;
+}
+ul.menu:hover {
+	display: block;
+	display: inline-block;
+	top: 0;
+	left: 0;
+}
+ul.menu > li {
+	display: block;
+	position: relative;
+	margin: 0 0 -1px 0;	/*Firefox DOM mouseover bug*/
+	padding: 2px 5px 2px 15px;
+	color: rgb(0, 0, 0);
+	background-color: transparent;
+	width: 200px;
+	height: auto;
+	border: none;
+	overflow: visible;
+	text-overflow: ellipsis;
+}
+ul.menu > li:hover {
+	background-color: transparent;
+	background-color: rgb(255, 255, 200);
+	background-color: rgba(255, 255, 200, 0.3);
+}
+ul.menu > li:hover > ul.menu {
+	left: 220px;
+	top: 0;
+	display: block;
+	display: inline-block;
+}

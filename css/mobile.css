@@ -1,0 +1,234 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  font-family: Verdana;
+}
+
+#gameboy_shell {
+  height: 100%;
+  min-height: 480px;
+  min-width: 320px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 45px;
+  box-shadow: inset -15px 16px 6px -12px rgba(255,255,255, 0.5), inset 15px -11px 6px -11px rgba(0,0,0,0.5);
+}
+
+#on_off {
+  margin-left: 10%;
+  font-size: 10pt;
+  text-shadow: 0px 0px 2px #000;
+}
+
+#screen_cover {
+  background-color: #525E59;
+  width: 80%;
+  height: 40%;
+  margin: 0 auto;
+  border: 1px solid black;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 30px;
+}
+
+#power {
+  float: left;
+  position: relative;
+  top: 30%;
+  font-size: 8pt;
+  color: white;
+  padding-left: 5px;
+}
+
+.two_column {
+  width: 30px;
+  height: 15px;
+}
+
+#power_light {
+  float: left;
+  position: static;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  margin-left: 5px;
+  margin-top: 2px;
+  border-radius: 10px;
+}
+
+#power_light +div {
+  float: right;
+}
+
+#canvas_container {
+  width: 160px;
+  margin: 20px auto 0 auto;
+}
+
+#screen_cover > div:last-child {
+  position: relative;
+  left: 15%;
+  width: 120px;
+  font-size: 10pt;
+  text-align: center;
+  color: white;
+  font-style: oblique;
+}
+
+#pocket {
+  color: #525E59;
+  background-color: white;
+  font-size: 8pt;
+}
+
+#nintendo {
+  border-radius: 10px;
+  width: 25%;
+  text-align: center;
+  margin: 10px auto 0 auto;
+  padding: 0 5px;
+  text-shadow: 0px 0px 2px #000;
+  box-shadow: 0px 0px 2px #000, inset 0px 0px 2px #000;
+}
+
+#d_pad {
+  width: 70px;
+  height: 70px;
+  position: relative;
+  top: 20px;
+  left: 10%;
+}
+
+#d_pad > div {
+  background-color: #525E59;
+}
+
+#d_pad_up {
+  box-shadow: inset -15px 10px 10px -12px rgba(255,255,255, 0.5), inset 15px -11px 6px -11px rgba(0,0,0,0.5);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 33%;
+  height: 33%;
+  margin: 0 auto;
+}
+
+#d_pad_left_right {
+  box-shadow: inset -15px 10px 10px -12px rgba(255,255,255, 0.5), inset 15px -11px 6px -11px rgba(0,0,0,0.5);
+  border-radius: 5px;
+  height: 33%;
+  margin: 0 auto;
+}
+
+#d_pad_down {
+  box-shadow: inset -15px 10px 10px -12px rgba(255,255,255, 0.5), inset 15px -11px 6px -11px rgba(0,0,0,0.5);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  width: 33%;
+  height: 33%;
+  margin: 0 auto;
+}
+
+#d_pad_left {
+  width: 33%;
+  height: 100%;
+  float: left;
+}
+
+#d_pad_center {
+  border: 1px solid black;
+  height: 20px;
+  width: 20px;
+  margin: 0 auto;
+  border-radius: 20px;
+  /*box-shadow: inset 5px -5px 6px 0px rgba(255,255,255, 0.5);*/
+  box-shadow: inset -15px 10px 10px -12px rgba(0,0,0, 0.5), inset 15px -11px 6px -11px rgba(255,255,255,0.5);
+}
+
+#d_pad_right {
+  width: 33%;
+  height: 100%;
+  float: right;
+}
+
+#arrow_up, #arrow_down, #arrow_left, #arrow_right {
+  width: 0;
+  height: 0;
+  margin: 0 auto;
+}
+
+#arrow_up {
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid black;
+}
+
+#arrow_left {
+  border-top: 10px solid transparent;
+  border-right: 20px solid black;
+  border-bottom: 10px solid transparent;
+}
+
+#arrow_right {
+  border-left: 20px solid black;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+#arrow_down {
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 20px solid black;
+}
+
+#a_button_group {
+  left: 75%;
+  top: 55%;
+}
+
+#b_button_group {
+  left: 55%;
+  top: 60%;
+}
+
+#select_button_group {
+  left: 33%;
+  top: 85%;
+}
+
+#start_button_group {
+  right: 33%;
+  top: 85%
+}
+
+.button_group {
+  position: absolute;
+  text-align: center;
+  color: #525E59;
+  font-size: 10pt;
+}
+
+.button_group div {
+  width: 40px;
+  background-color: #525E59;
+  border-radius: 20px;
+  margin: 0 auto 10px auto;
+  box-shadow: inset -15px 10px 10px -12px rgba(255,255,255, 0.5), inset 15px -11px 6px -11px rgba(0,0,0,0.5);
+}
+
+.button_group .round_button {
+  height: 40px;
+}
+
+.button_group .flat_button {
+  height: 15px;
+}
+
+#speaker {
+  position: relative;
+  left: 70%;
+  top: 15%;
+}
