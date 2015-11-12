@@ -4987,7 +4987,7 @@ GameBoyCore.prototype.recomputeDimension = function () {
 	//Cache some dimension info:
 	this.onscreenWidth = this.canvas.width;
 	this.onscreenHeight = this.canvas.height;
-	if (window && window.mozRequestAnimationFrame) {
+	if (window && window.mozRequestAnimationFrame || (navigator.userAgent.toLowerCase().indexOf("gecko") != -1 && navigator.userAgent.toLowerCase().indexOf("like gecko") == -1)) {
 		//Firefox slowness hack:
 		this.canvas.width = this.onscreenWidth = (!settings[12]) ? 160 : this.canvas.width;
 		this.canvas.height = this.onscreenHeight = (!settings[12]) ? 144 : this.canvas.height;
