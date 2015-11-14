@@ -7909,12 +7909,20 @@ GameBoyCore.prototype.memoryReadJumpCompile = function () {
 						return 0x8F | parentObj.memory[0xFF75];
 					}
 					break;
-				case 0xFF76:
-				case 0xFF77:
-					this.memoryHighReader[index & 0xFF] = this.memoryReader[index] = function (parentObj, address) {
-						return 0;
-					}
-					break;
+                case 0xFF76:
+                    //Undocumented realtime PCM amplitude readback:
+                    this.memoryHighReader[0x76] = this.memoryReader[0xFF76] = function (parentObj, address) {
+                        parentObj.audioJIT();
+                        return (parentObj.channel2envelopeVolume << 4) | parentObj.channel1envelopeVolume;
+                    }
+                    break;
+                case 0xFF77:
+                    //Undocumented realtime PCM amplitude readback:
+                    this.memoryHighReader[0x77] = this.memoryReader[0xFF77] = function (parentObj, address) {
+                        parentObj.audioJIT();
+                        return (parentObj.channel4envelopeVolume << 4) | parentObj.channel3envelopeVolume;
+                    }
+                    break;
 				case 0xFF78:
 				case 0xFF79:
 				case 0xFF7A:
