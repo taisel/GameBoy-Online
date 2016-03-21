@@ -356,18 +356,19 @@ function GameBoyEmulatorPlaying() {
 }
 function GameBoyKeyDown(key) {
 	if (GameBoyEmulatorInitialized() && GameBoyEmulatorPlaying()) {
-		var keycode = matchKey(key);
+		GameBoyJoyPadEvent(matchKey(key), true);
+	}
+}
+function GameBoyJoyPadEvent(keycode, down) {
+	if (GameBoyEmulatorInitialized() && GameBoyEmulatorPlaying()) {
 		if (keycode >= 0 && keycode < 8) {
-			gameboy.JoyPadEvent(keycode, true);
+			gameboy.JoyPadEvent(keycode, down);
 		}
 	}
 }
 function GameBoyKeyUp(key) {
 	if (GameBoyEmulatorInitialized() && GameBoyEmulatorPlaying()) {
-		var keycode = matchKey(key);
-		if (keycode >= 0 && keycode < 8) {
-			gameboy.JoyPadEvent(keycode, false);
-		}
+		GameBoyJoyPadEvent(matchKey(key), false);
 	}
 }
 function GameBoyGyroSignalHandler(e) {
