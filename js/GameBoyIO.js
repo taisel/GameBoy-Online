@@ -52,6 +52,7 @@ function run() {
 function pause() {
 	if (GameBoyEmulatorInitialized()) {
 		if (GameBoyEmulatorPlaying()) {
+			autoSave();
 			clearLastEmulation();
 		}
 		else {
