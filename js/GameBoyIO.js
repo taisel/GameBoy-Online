@@ -75,17 +75,11 @@ function clearLastEmulation() {
 }
 function save() {
 	if (GameBoyEmulatorInitialized()) {
-		try {
-			var state_suffix = 0;
-			while (findValue("FREEZE_" + gameboy.name + "_" + state_suffix) != null) {
-				state_suffix++;
-			}
-			setValue("FREEZE_" + gameboy.name + "_" + state_suffix, gameboy.saveState());
-			cout("Saved the current state as: FREEZE_" + gameboy.name + "_" + state_suffix, 0);
+		var state_suffix = 0;
+		while (findValue("FREEZE_" + gameboy.name + "_" + state_suffix) != null) {
+			state_suffix++;
 		}
-		catch (error) {
-			cout("Could not save the current emulation state(\"" + error.message + "\").", 2);
-		}
+		saveState("FREEZE_" + gameboy.name + "_" + state_suffix);
 	}
 	else {
 		cout("GameBoy core cannot be saved while it has not been initialized.", 1);
@@ -178,6 +172,20 @@ function openRTC(filename) {
 		cout("Could not open the RTC data of the saved emulation state.", 2);
 	}
 	return [];
+}
+function saveState(filename) {
+	if (GameBoyEmulatorInitialized()) {
+		try {
+			setValue(filename, gameboy.saveState());
+			cout("Saved the current state as: " + filename, 0);
+		}
+		catch (error) {
+			cout("Could not save the current emulation state(\"" + error.message + "\").", 2);
+		}
+	}
+	else {
+		cout("GameBoy core cannot be saved while it has not been initialized.", 1);
+	}
 }
 function openState(filename, canvas) {
 	try {
