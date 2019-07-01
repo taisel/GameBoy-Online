@@ -157,7 +157,7 @@ function registerGUIEvents() {
 						catch (error) {
 							alert(error.message + " file: " + error.fileName + " line: " + error.lineNumber);
 						}
-						
+
 					}
 				}
 				else {
@@ -209,7 +209,7 @@ function registerGUIEvents() {
 						catch (error) {
 							alert(error.message + " file: " + error.fileName + " line: " + error.lineNumber);
 						}
-						
+
 					}
 				}
 				else {
@@ -427,6 +427,13 @@ function deleteValue(key) {
 		window.globalStorage[location.hostname].removeItem(key);
 	}
 }
+function outputBlobLink(keyName, blobString, downloadName) {
+	const data = generateBlob(keyName, JSON.stringify(findValue(keyName)));
+	const url = URL.createObjectURL(new Blob([blobString], {
+		type: "application/octet-stream"
+	}));
+	return generateDownloadLink(url, keyName, downloadName);
+}
 function outputLocalStorageLink(keyName, dataFound, downloadName) {
 	return generateDownloadLink("data:application/octet-stream;base64," + dataFound, keyName, downloadName);
 }
@@ -511,7 +518,9 @@ function popupStorageDialog(keyName) {
 		downloadDiv.appendChild(outputLocalStorageLink("Download in import compatible format.", base64(generateBlob(keyName, convertToBinary(findValue(keyName)))), keyName));
 	}
 	else {
-		downloadDiv.appendChild(outputLocalStorageLink("Download in import compatible format.", base64(generateBlob(keyName, JSON.stringify(findValue(keyName)))), keyName));
+		var blobString = generateBlob(keyName, JSON.stringify(findValue(keyName)));
+		downloadDiv.appendChild(outputBlobLink("Download in import compatible format.", blobString, keyName));
+		// downloadDiv.appendChild(outputLocalStorageLink("Download in import compatible format.", base64(blob), keyName));
 	}
 	var deleteLink = generateLink("javascript:deleteStorageSlot(\"" + keyName + "\")", "Delete data item from HTML5 local storage.");
 	deleteLink.id = "storagePopupDelete";
@@ -631,7 +640,7 @@ function mouseEnterVerify(oElement, event) {
 	return !isDescendantOf(oElement, (typeof event.target != "undefined") ? event.target : event.srcElement) && isDescendantOf(oElement, (typeof event.relatedTarget != "undefined") ? event.relatedTarget : event.fromElement);
 }
 function addEvent(sEvent, oElement, fListener) {
-	try {	
+	try {
 		oElement.addEventListener(sEvent, fListener, false);
 		cout("In addEvent() : Standard addEventListener() called to add a(n) \"" + sEvent + "\" event.", -1);
 	}
@@ -641,7 +650,7 @@ function addEvent(sEvent, oElement, fListener) {
 	}
 }
 function removeEvent(sEvent, oElement, fListener) {
-	try {	
+	try {
 		oElement.removeEventListener(sEvent, fListener, false);
 		cout("In removeEvent() : Standard removeEventListener() called to remove a(n) \"" + sEvent + "\" event.", -1);
 	}
